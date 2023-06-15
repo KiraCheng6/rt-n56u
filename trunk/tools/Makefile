@@ -19,7 +19,6 @@ CFLAGS    = -Wall -O2
 LDFLAGS   =
 
 
-include $(ROOTDIR)/coustom
 -include $(LINUX_CONFIG)
 
 all:go_build
