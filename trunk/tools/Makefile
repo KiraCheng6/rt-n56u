@@ -1,5 +1,6 @@
 THISDIR = $(shell pwd)
-go_version = 1.15.2
+#go_version = 1.15.2
+go_version = 1.17.6
 # use host target
 CC        = gcc
 GCC       = gcc
@@ -18,7 +19,7 @@ CFLAGS    = -Wall -O2
 LDFLAGS   =
 
 
-
+include $(ROOTDIR)/coustom
 -include $(LINUX_CONFIG)
 
 all:go_build
@@ -26,9 +27,7 @@ all:go_build
 	mkdir -p sstrip
 	make -C $(SSTRIP_NAME)
 	make -C lzma
-ifeq ($(CONFIG_RT2880_ROOTFS_IN_FLASH),y)
 	make -C mksquashfs_xz
-endif
 
 go_build:
 	mkdir -p $(THISDIR)/go
